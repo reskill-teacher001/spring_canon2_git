@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>計算</title>
+</head>
+<body>
+	<h1>計算</h1>
+	
+	<form action="/sp11/add" method="get">
+		<input type="text" name="num1">
+		＋
+		<input type="text" name="num2">
+		
+		<input type="submit" value="計算">
+	</form>
+	
+	結果：[[${result}]]
+</body>
+</html>

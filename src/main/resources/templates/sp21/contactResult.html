@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ログイン</title>
+</head>
+<body>
+	<h1>[[${genre}]]ありがとうございます</h1>
+	
+	<div>以下の内容にて受け付けました</div>
+	
+	
+	<table border="1">
+		<tr>
+			<th>言語</th>
+			<td>[[${langList}]]</td>
+		</tr>
+		<tr>
+			<th>詳細内容</th>
+			<td>[[${detail}]]</td>
+		</tr>
+		<tr>
+			<th>実施予定日</th>
+			<td>[[${dueDate}]]</td>
+		</tr>
+		<tr>
+			<th>お名前</th>
+			<td>[[${name}]]</td>
+		</tr>
+		<tr>
+			<th>メールアドレス</th>
+			<td>[[${email}]]</td>
+		</tr>
+	</table>
+	
+	<th:block th:if="${lang} != null">
+		<ul>
+			<li th:each="la : ${lang}"><a th:href="|/sp21/training/${la}|">[[${la}]]</a></li>
+		</ul>
+	</th:block>
+		
+</body>
+</html>

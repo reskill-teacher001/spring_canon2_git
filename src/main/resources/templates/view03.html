@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Spring03</title>
+</head>
+<body>
+名前：[[${h.name}]]<br>
+年齢：[[${h.age}]]<br>
+
+<hr>
+
+<div th:object="${h}">
+	名前：<span th:text="*{name}"></span><br>
+	年齢：<span th:text="*{age}"></span><br>
+</div>
+</body>
+</html>

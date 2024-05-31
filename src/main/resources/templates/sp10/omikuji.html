@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>おみくじ</title>
+</head>
+<body>
+	<form action="/sp10/omikuji" method="post">
+		<input type="submit" value="おみくじを引く">
+	</form>
+	
+	[[${result}]]
+</body>
+</html>

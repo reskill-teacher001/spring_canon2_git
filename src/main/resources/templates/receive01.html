@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>データ受信</title>
+</head>
+<body>
+	<h1>データ受信</h1>
+	<hr>
+	名前：[[${name}]]<br>
+	年齢：[[${age}]]<br>
+	好きなフルーツ：<br>
+	
+	<span th:if="${fruits} == null">
+		フルーツが選択されていません。<br>
+	</span>
+	<span th:unless="${fruits} == null">
+		<ul>
+			<li th:each="f, status:${fruits}">[[${status.index}]]・・・[[${f}]]</li>
+		</ul>
+	</span>
+	
+	<br>
+	
+	<a href="/abc?id=${id}">リンク</a><br>
+	<a th:href="@{/abc(id=${id})}">リンク</a><br>
+	<a th:href="|/abc?id=${id}&age=${age}|">リンク</a><br>
+	<a th:href="@{/abc/{id}(id=${id})}">リンク</a><br>
+	<a th:href="|/abc/${id}|">リンク</a><br>
+	
+	<input type="text" name="AAA" th:value="${id}">
+</body>
+</html>

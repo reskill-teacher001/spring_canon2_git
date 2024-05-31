@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Input</title>
+</head>
+<body>
+	<div>情報を入力してください</div>
+	
+	<form action="/sp10/hello" method="post">
+		名前：<br>
+		<input type="text" name="name">
+		<br>
+		
+		年齢：<br>
+		<input type="text" name="age">
+		<br>
+		
+		趣味：<br>
+		<textarea name="hobby" cols="30" rows="5"></textarea>
+		<br>
+		<input type="submit" value="送信">
+	</form>
+</body>
+</html>

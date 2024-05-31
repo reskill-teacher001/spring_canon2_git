@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Spring02</title>
+</head>
+<body>
+名前：[[${name}]]<br>
+年齢：[[${age}]]<br>
+
+<hr>
+
+名前：<span th:text="${name}"></span><br>
+年齢：<span th:text="${age}"></span><br>
+
+<hr>
+
+<div th:text="${name} + ${age}"></div>
+<div th:text="|${name}${age}|"></div>
+
+<hr>
+
+<div th:with="company='キヤノン'">
+	<span th:text="${company}"></span>
+</div>
+
+<hr>
+
+<ul>
+	<li th:each="data:${list}">[[${data}]]</li>
+</ul>
+<ul>
+	<li th:each="data:${list}"><span th:text="${data}"></span></li>
+</ul>
+
+<div th:text="${10 + 20}"></div>
+
+<hr>
+
+<div th:if="${age} >= 18">成人</div>
+<div th:unless="${age} >= 18">未成年</div>
+
+<hr>
+
+<div th:switch="${data}">
+	<span th:case="1">１です</span>
+	<span th:case="2">２です</span>
+	<span th:case="3">３です</span>
+	<span th:case="*">該当なし</span>
+</div>
+
+</body>
+</html>
