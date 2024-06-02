@@ -48,6 +48,7 @@ public class AccountController {
 		
 		if (errors.size() > 0) {
 			model.addAttribute("errors", errors);
+			model.addAttribute("name", name);
 			return "sp30/accountForm";
 		}
 		
