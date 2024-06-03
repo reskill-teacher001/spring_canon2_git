@@ -65,4 +65,21 @@ public class AccountController {
 		
 		return "sp30/accountConfirm";
 	}
+	
+	@PostMapping("/account")
+	public String store(
+			@RequestParam("name") String name,
+			@RequestParam("email") String email,
+			@RequestParam("password") String password,
+			Model model
+	) {
+		//Accountクラスのインスタンスを生成
+		Account account = new Account(name, email, password);
+
+		//Modelに記憶
+		model.addAttribute("account", account);
+		
+		return "sp30/accountFinish";
+	}
+
 }
