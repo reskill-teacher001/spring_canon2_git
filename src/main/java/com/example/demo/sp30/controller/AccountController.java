@@ -17,7 +17,11 @@ import com.example.demo.sp30.model.Account;
 public class AccountController {
 
 	@GetMapping("/account")
-	public String index() {
+	public String index(Model model) {
+		
+		Account account = new Account();
+		model.addAttribute("account", account);
+		
 		return "/sp30/accountForm";
 	}
 
@@ -46,18 +50,19 @@ public class AccountController {
 			errors.add("パスワードは必須です");
 		}
 		
-		if (errors.size() > 0) {
-			model.addAttribute("errors", errors);
-			model.addAttribute("name", name);
-			return "sp30/accountForm";
-		}
-		
 		//Accountクラスのインスタンスを生成
 		Account account = new Account(name, email, password);
+		
+		if (errors.size() > 0) {
+			model.addAttribute("errors", errors);
+			model.addAttribute("account", account);
+			
+			return "sp30/accountForm";
+		}
 		
 		//Modelに記憶
 		model.addAttribute("account", account);
 		
-		return "/sp30/accountConfirm";
+		return "sp30/accountConfirm";
 	}
 }
