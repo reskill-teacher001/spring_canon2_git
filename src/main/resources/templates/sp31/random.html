@@ -11,13 +11,13 @@
 		<p>
 			<select name="charLength">
 				<option th:each="i : ${#numbers.sequence(5, 10)}" 
-					th:value="${i}" th:text="|${i}文字|"></option>
+					th:value="${i}" th:text="|${i}文字|" th:selected="${i == charLength}"></option>
 			</select>
-			<input type="checkbox" name="withNumber" value="true">数字を含める
-			<input type="checkbox" name="withAlphabet" value="true">英字を含める
+			<input type="checkbox" name="withNumber" value="true" th:checked="${withNumber}">数字を含める
+			<input type="checkbox" name="withAlphabet" value="true" th:checked="${withAlphabet}">英字を含める
 		</p>
 		<p>
-			<input type="text" name="createCount">個生成する
+			<input type="text" name="createCount" th:value="${createCount}">個生成する
 		</p>
 		<p>
 			<button>作成する</button>

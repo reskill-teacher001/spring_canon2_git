@@ -40,7 +40,12 @@ public class RandomStringController31 {
 		List<String> list = service.generate(charLength, withNumber, withAlphabet, createCount);
 
 		model.addAttribute("randList", list);
-
+		
+		model.addAttribute("charLength", charLength);
+		model.addAttribute("withNumber", withNumber);
+		model.addAttribute("withAlphabet", withAlphabet);
+		model.addAttribute("createCount", createCount);
+		
 		return "sp31/random";
 	}
 }
