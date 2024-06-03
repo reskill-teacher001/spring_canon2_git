@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>日記</title>
+</head>
+<body>
+	<h3>ようこそ！[[${@account.name}]]さん</h3>
+	<a href="/chap05/logout">ログアウト</a>
+	
+	<hr>
+	
+	<form action="/chap05/blog" method="post">
+		<input type="text" name="title" placeholder="タイトル">
+		
+		<br>
+		
+		<textarea name="content" placeholder="内容"></textarea>
+		
+		<br>
+		
+		<input type="submit" value="投稿する">
+	</form>
+	
+	<hr>
+	
+	<table border="1">
+		<tr>
+			<th>日時</th>
+			<th>タイトル</th>
+			<th>内容</th>
+		</tr>
+		
+		<tr th:each="post : ${@postList.posts}">
+			<td>[[${post.createAt}]]</td>
+			<td>[[${post.title}]]</td>
+			<td>[[${post.content}]]</td>
+		</tr>
+	</table>
+	
+</body>
+</html>
