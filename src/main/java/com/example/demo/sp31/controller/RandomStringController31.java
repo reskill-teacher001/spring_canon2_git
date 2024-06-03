@@ -30,12 +30,13 @@ public class RandomStringController31 {
 	public String generate(
 			@RequestParam(name="charLength") int charLength,
 			@RequestParam(name = "withNumber", defaultValue = "false") boolean withNumber,
+			@RequestParam(name="createCount", defaultValue = "1") int createCount,
 			Model model) {
 		
 		//RandomStringService service = new RandomStringService();
 
 		// ランダム文字列のListを生成
-		List<String> list = service.generate(charLength, withNumber);
+		List<String> list = service.generate(charLength, withNumber, createCount);
 
 		model.addAttribute("randList", list);
 

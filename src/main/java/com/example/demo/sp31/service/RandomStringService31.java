@@ -29,4 +29,22 @@ public class RandomStringService31 {
 		
 		return list;
 	}
+	
+	public List<String> generate(int charLength, boolean withNumber, int createCount) {
+		// 生成した文字列を保存するList
+		List<String> list = new ArrayList<>();
+		
+		// 生成する個数分繰り返す
+		for (int i = 0; i < createCount; i++) {
+			if (withNumber) {
+				// 数字を含む文字列をListに追加
+				list.add(RandomStringUtils.randomAlphanumeric(charLength));
+			} else {
+				// 数字を含まない文字列をListに追加
+				list.add(RandomStringUtils.randomAlphabetic(charLength));
+			}
+		}
+		
+		return list;
+	}
 }
