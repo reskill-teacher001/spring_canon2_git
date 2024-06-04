@@ -43,4 +43,12 @@ public class CartController {
 		
 		return "sp40/cart";
 	}
+	
+	@GetMapping("/cart/clear")
+	public String clearCart() {
+		List<Item> items = cart.getItems();
+		items.clear();
+		
+		return "sp40/cart";
+	}
 }
