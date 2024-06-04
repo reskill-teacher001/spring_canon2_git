@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ショッピングカート</title>
+</head>
+<body>
+	<h1>ショッピングカート</h1>
+	
+	<form action="/sp40/cart/add" method="post">
+		<input type="text" name="name" placeholder="商品名">
+		<input type="text" name="price" placeholder="価格">
+		<input type="submit" value="カートに追加">
+	</form>
+</body>
+</html>
