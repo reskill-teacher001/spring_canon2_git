@@ -13,14 +13,14 @@
 		<input type="submit" value="カートに追加">
 	</form>
 	
-	<th:block th:if="${item}">
+	<th:block th:if="${@cart.items.size > 0}">
 		<table border="1">
 			<tr>
 				<th>商品名</th>
 				<th>価格</th>
 			</tr>
 			
-			<tr>
+			<tr th:each="item : ${@cart.items}">
 				<td>[[${item.name}]]</td>
 				<td>[[${item.price}]]</td>
 			</tr>
