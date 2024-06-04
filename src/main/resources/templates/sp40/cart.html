@@ -12,5 +12,19 @@
 		<input type="text" name="price" placeholder="価格">
 		<input type="submit" value="カートに追加">
 	</form>
+	
+	<th:block th:if="${item}">
+		<table border="1">
+			<tr>
+				<th>商品名</th>
+				<th>価格</th>
+			</tr>
+			
+			<tr>
+				<td>[[${item.name}]]</td>
+				<td>[[${item.price}]]</td>
+			</tr>
+		</table>
+	</th:block>
 </body>
 </html>
