@@ -7,6 +7,11 @@
 <body>
 	<h1>商品一覧</h1>
 	
+	<form action="/sp50/items" method="get">
+		<input type="text" name="maxPrice" th:value="${maxPrice}">円以下
+		<input type="submit" value="検索">
+	</form>
+	
 	<a href="/sp50/items?sort=priceAsc">安い順</a>
 	
 	<table border="1">
