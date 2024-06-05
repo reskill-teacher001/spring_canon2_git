@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>全件検索</title>
+</head>
+<body>
+	<h1>全件検索</h1>
+	<hr>
+	
+	<table border="1">
+		<tr>
+			<th>No</th>
+			<th>名前</th>
+			<th>日付</th>
+			<th>内容</th>
+		</tr>
+		
+		<tr th:each="diary : ${list}">
+			<td>[[${diary.no}]]</td>
+			<td>[[${diary.member.name}]]</td>
+			<td>[[${diary.date}]]</td>
+			<td>[[${diary.content}]]</td>
+		</tr>
+	</table>
+</body>
+</html>

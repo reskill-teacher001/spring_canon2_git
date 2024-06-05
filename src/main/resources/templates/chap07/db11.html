@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>全件検索</title>
+</head>
+<body>
+	<h1>全件検索</h1>
+	<hr>
+	
+	<table border="1">
+		<tr>
+			<th>ID</th>
+			<th>名前</th>
+			<th>年齢</th>
+		</tr>
+		
+		<tr th:each="member : ${list}">
+			<td>[[${member.id}]]</td>
+			<td>[[${member.name}]]</td>
+			<td>[[${member.age}]]</td>
+		</tr>
+	</table>
+</body>
+</html>

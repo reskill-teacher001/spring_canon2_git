@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>単一検索</title>
+</head>
+<body>
+	<h1>単一検索</h1>
+	<hr>
+	
+	<th:block th:if="${user} != null">
+		<table border="1">
+			<tr>
+				<th>ID</th>
+				<th>名前</th>
+				<th>年齢</th>
+			</tr>
+			
+			<tr>
+				<td>[[${user.id}]]</td>
+				<td>[[${user.name}]]</td>
+				<td>[[${user.age}]]</td>
+			</tr>
+		</table>
+	</th:block>
+	
+	<th:block th:if="${user} == null">
+		レコードがありません。
+	</th:block>
+	
+</body>
+</html>

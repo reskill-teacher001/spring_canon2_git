@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.sp40.model.Account;
 import com.example.demo.sp40.model.Cart;
 import com.example.demo.sp40.model.Item;
 
@@ -24,6 +25,9 @@ public class CartController {
 	
 	@Autowired
 	Cart cart;
+	
+	//@Autowired
+	Account account;
 	
 	@GetMapping("/cart")
 	public String showCart() {
@@ -51,4 +55,22 @@ public class CartController {
 		
 		return "sp40/cart";
 	}
+	
+	@GetMapping("/cart/login")
+	public String index() {
+		session.invalidate();
+		
+		return "sp40/cartLogin";
+	}
+	
+	@PostMapping("/cart/login")
+	public String login(
+			@RequestParam("name") String name,
+			Model model
+	) {
+		//account.setName(name);
+		
+		return "sp40/cart";
+	}
+	
 }
