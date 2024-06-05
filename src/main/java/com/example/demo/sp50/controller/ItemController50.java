@@ -23,11 +23,12 @@ public class ItemController50 {
 	public String index(
 			@RequestParam(name="sort", required=false) String sort,
 			@RequestParam(name="maxPrice", required=false) Integer maxPrice,
+			@RequestParam(name="keyword", required=false) String keyword,
 			Model model
 	) {
 		List<Item> list = null;
 		
-		if (sort == null && maxPrice == null) {
+		if (sort == null && maxPrice == null && keyword == null) {
 			list = itemRepository.findAll();
 		}
 		
@@ -39,8 +40,13 @@ public class ItemController50 {
 			list = itemRepository.findByPriceLessThanEqual(maxPrice);
 		}
 		
+		if (keyword != null) {
+			list = itemRepository.findByNameLike("%" + keyword + "%");
+		}
+		
 		model.addAttribute("list", list);
 		model.addAttribute("maxPrice", maxPrice);
+		model.addAttribute("keyword", keyword);
 		
 		return "sp50/items";
 	}

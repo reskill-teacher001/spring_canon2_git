@@ -11,4 +11,5 @@ import com.example.demo.sp50.entity.Item;
 public interface ItemRepository extends JpaRepository<Item, Integer> {
 	public List<Item> findByOrderByPriceAsc();
 	public List<Item> findByPriceLessThanEqual(Integer price);
+	public List<Item> findByNameLike(String keyword);
 }
