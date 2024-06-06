@@ -68,4 +68,13 @@ public class ItemController51 {
 		
 		return "sp51/items";
 	}
+	
+	@GetMapping("/insert")
+	public String index(Model model) {
+		itemRepository.touroku(3, "テストBook", 2500);
+		
+		return "sp51/items";
+		//return "redirect:/sp51/items";
+		//return index(null, null, null, model);
+	}
 }
