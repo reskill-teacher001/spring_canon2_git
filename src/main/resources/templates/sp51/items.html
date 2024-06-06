@@ -14,7 +14,7 @@
 		<input type="submit" value="検索">
 	</form>
 	
-	<a href="/sp51/items?sort=priceAsc">安い順</a>
+	<a th:href="|/sp51/items?sort=priceAsc&maxPrice=${maxPrice}&keyword=${keyword}|">安い順</a>
 	
 	<table border="1">
 		<tr>

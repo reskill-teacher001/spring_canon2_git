@@ -28,29 +28,43 @@ public class ItemController51 {
 	) {
 		List<Item> list = null;
 		
+		//並べ替えなし
 		if (sort == null && maxPrice == null && keyword == null) {
 			list = itemRepository.findAll();
 		}
 		
-		if (sort != null) {
-			list = itemRepository.findByOrderByPriceAsc();
-		}
-		
-		if (maxPrice != null && keyword == null) {
+		if (sort == null && maxPrice != null && keyword == null) {
 			list = itemRepository.findByPriceLessThanEqual(maxPrice);
 		}
 		
-		if (maxPrice == null && keyword != null) {
+		if (sort == null && maxPrice == null && keyword != null) {
 			list = itemRepository.findByNameLike("%" + keyword + "%");
 		}
 		
-		if (maxPrice != null && keyword != null) {
+		if (sort == null && maxPrice != null && keyword != null) {
 			list = itemRepository.findByPriceLessThanEqualAndNameLike(maxPrice, "%" + keyword + "%");
 		}
 		
+		//並べ替えあり
+		if (sort != null && maxPrice == null && keyword == null) {
+			list = itemRepository.findByOrderByPriceAsc();
+		}
+		
+		if (sort != null && maxPrice != null && keyword == null) {
+			list = itemRepository.findByPriceLessThanEqualOrderByPriceAsc(maxPrice);
+		}
+		
+		if (sort != null && maxPrice == null && keyword != null) {
+			list = itemRepository.findByNameLikeOrderByPriceAsc("%" + keyword + "%");
+		}
+		
+		if (sort != null && maxPrice != null && keyword != null) {
+			list = itemRepository.findByPriceLessThanEqualAndNameLikeOrderByPriceAsc(maxPrice, "%" + keyword + "%");
+		}
+		
 		model.addAttribute("list", list);
-		model.addAttribute("maxPrice", maxPrice);
-		model.addAttribute("keyword", keyword);
+		model.addAttribute("maxPrice", maxPrice != null ? maxPrice : "");
+		model.addAttribute("keyword", keyword != null ? keyword : "");
 		
 		return "sp51/items";
 	}
