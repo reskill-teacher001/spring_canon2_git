@@ -12,12 +12,24 @@
 			<th>商品ID</th>
 			<th>商品名</th>
 			<th>値段</th>
+			<th>更新</th>
+			<th>削除</th>
 		</tr>
 		
 		<tr th:each="item : ${list}">
 			<td>[[${item.id}]]</td>
 			<td>[[${item.name}]]</td>
 			<td>[[${item.price}]]</td>
+			<td>
+				<form th:action="|/sp60/items/${item.id}/edit|" method="get">
+					<input type="submit" value="更新">
+				</form>
+			</td>
+			<td>
+				<form th:action="|/sp60/items/${item.id}/delete|" method="post">
+					<input type="submit" value="削除">
+				</form>
+			</td>
 		</tr>
 		
 	</table>

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -49,4 +50,45 @@ public class ItemController60 {
 		//return index(model);
 		return "redirect:/sp60/items";
 	}
+	
+	@GetMapping("/items/{id}/edit")
+	public String edit(
+			@PathVariable(name="id") Integer id,
+			Model model
+	) {
+		Item item = itemRepository.findById(id).get();
+		
+		model.addAttribute("item", item);
+		
+		return "sp60/editItem";
+	}
+	
+	@PostMapping("/items/{id}/edit")
+	public String update(
+			@PathVariable(name="id") Integer id,
+			@RequestParam(name="categoryId", required=false) Integer categoryId,
+			@RequestParam(name="name", required=false) String name,
+			@RequestParam(name="price", required=false) Integer price,
+			Model model
+	) {
+		Item item = new Item(id, categoryId, name, price);
+		
+		itemRepository.saveAndFlush(item);
+		//itemRepository.save(item);
+		
+		//return index(model);
+		return "redirect:/sp60/items";
+	}
+	
+	@PostMapping("/items/{id}/delete")
+	public String delete(
+			@PathVariable(name="id") Integer id,
+			Model model
+	) {
+		itemRepository.deleteById(id);
+		
+		//return index(model);
+		return "redirect:/sp60/items";
+	}
+	
 }
