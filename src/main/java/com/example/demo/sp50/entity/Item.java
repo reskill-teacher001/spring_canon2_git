@@ -17,8 +17,25 @@ public class Item {
 	private Integer id; //ID
 	
 	@Column(name="category_id")
-	private String categoryId; //カテゴリID
+	private Integer categoryId; //カテゴリID
 	
 	private String name; //名前
 	private Integer price; //価格
+	
+	public Item() {
+
+	}
+	
+	public Item(Integer categoryId, String name, Integer price) {
+		this.categoryId = categoryId;
+		this.name = name;
+		this.price = price;
+	}
+
+	public Item(Integer id, Integer categoryId, String name, Integer price) {
+		this.id = id;
+		this.categoryId = categoryId;
+		this.name = name;
+		this.price = price;
+	}
 }
